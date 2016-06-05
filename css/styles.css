@@ -1,0 +1,175 @@
+body{
+	margin:0;
+	font-family:Arial, sans-serif;
+	font-size:12px;
+	background-color:#333;
+	color:#fff;
+	padding-top:30px;
+}
+h1{
+	font-size:40px;
+	line-height:50px;
+	float:left;
+	margin:0;
+}
+h1 span{
+	color:#999;
+	font-weight:normal;
+}
+h1,
+h2{
+	font-family:"Open Sans Condensed", sans-serif;
+}
+ul{
+	margin:0;
+	padding:0 0 20px 30px;
+}
+hr{
+	height: 0px;
+	border: dotted #ccc;
+	border-width: 1px 0 0 0;
+	margin: 20px 0;
+	background: transparent;
+	clear: both;
+}
+.btn.download{
+	background:#FD6403;
+	border-radius:5px;
+	color:#fff;
+	display:inline-block;
+	font-family:"open sans condensed", sans-serif;
+	font-size:20px;
+	font-weight:bold;
+	line-height:50px;
+	padding:0 20px;
+	text-decoration:none;
+	transition:.5s;
+	-webkit-transition:.5s;
+	-moz-transition:.5s;
+}
+.btn.download:hover{
+	background:#fff;
+	color:#FD6403;
+}
+header{
+	margin:0 auto 40px;
+}
+header .language{
+	padding: 16px 0 0 20px;
+}
+header .language a{
+	margin-right: 5px;
+	opacity: .5;
+}
+header .language a.active{
+	opacity: 1;
+}
+header,
+.container{
+	width:900px;
+	overflow:hidden;
+}
+.container{
+	margin:auto;
+}
+.mySlideshow .animated{
+	position:absolute;
+}
+.first{
+	background:url("../images/first.png") no-repeat;
+}
+.first a,
+.first img{
+	display:block;
+}
+.first a{
+	top:80px;
+	left:50%;
+	margin-left:-165px;
+}
+.first div{
+	font-family:'Open Sans Condensed', sans-serif;
+	font-size:50px;
+	bottom:80px;
+	left:50%;
+	width:320px;
+	text-align:center;
+	margin-left:-160px;
+}
+.second{
+	background:url("../images/second.png") no-repeat;
+}
+.second img{
+	top:130px;
+	left:40px;
+}
+.third{
+	background:url("../images/third.png") no-repeat;
+}
+.third img{
+	top:330px;
+	right:40px;
+}
+.fourth{
+	background:url("../images/fourth.png") no-repeat;
+}
+.fourth img{
+	top:160px;
+	left:20px;
+}
+.fifth{
+	background:url("../images/fifth.png") no-repeat;
+}
+.fifth img{
+	top:120px;
+	left:20px;
+}
+.code{
+	background:#000;
+	width:100%;
+}
+.code.orange{
+	color:#ff8c00;
+}
+.code.green{
+	color:#32cd32;
+}
+.code.blue{
+	color:#20b2aa;
+}
+.code span{
+	display:block;
+	padding:0 20px;
+}
+.code > span{
+	height:20px;
+	line-height:20px;
+	padding:0 20px;
+}
+.code em{
+	color:#fff;
+}
+table{
+	border-collapse:collapse;
+}
+table td,
+table th{
+	padding:10px;
+	text-align:left;
+}
+table th{
+	color:yellow;
+}
+.float-right{
+	float:right;
+}
+.float-left{
+	float:left;
+}
+.link{
+	color: #FD6403;
+}
+.icon{
+	vertical-align: middle;
+	margin-right: 5px;
+}
