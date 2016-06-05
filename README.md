@@ -1,0 +1,2 @@
+# edslider
+jQuery Slider PLugin
