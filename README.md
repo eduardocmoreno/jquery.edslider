@@ -2,13 +2,13 @@
 jQuery Slider PLugin
 
 #### How to use?
-1º - Call jQuery, edSlider plugin and edSlider css inside **HEAD** tag
+1º - Call jQuery, edSlider plugin and edSlider css
 ```html
 <link rel="stylesheet" href="your-css-directory/edslider.css">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="your-js-directory/edslider.js"></script>
 ```
-2º - Initialize the plugin (still inside **HEAD** tag)
+2º - Init plugin
 ```html
 <script>
 //Callback after document ready
@@ -21,7 +21,7 @@ $(document).ready(function(){
 });
 </script>
 ```
-3º - Inside **BODY** tag, make the html structure like this:
+3º - Html structure
 ```html
 <ul class="mySlideshow">
 	<li>Yor stuff here!</li>
@@ -33,17 +33,17 @@ $(document).ready(function(){
 #### Options
 Option | Default Value | Description
 --- | --- | ---
-width |	960 | Sets the width of the slider
-height | 400 | Sets the height of the slider
-position | 1 | Sets the start position. It must be between 1 and the **li** lenght.
-interval | 5000 | Sets the time interval (in milliseconds) between slides.
-duration | 500 | Sets the speed (in milliseconds) of the animations.
-animation | true | Enable/disable animation.
-paginator |	true | Enable/disable the paginator (boolean value: true or false).
-navigator |	true | Enable/disable the "next" and "prev" navigation buttons (boolean value: true or false).
-progress |	true | Enable/disable the interval progress bar (boolean value: true or false).
-loadImgSrc | 'images/load.gif' | Sets the path of the loading image.
-skin | 'edslider' | Sets the name of the skin. Use the edslider.css file to create your own skin.
+width |	960 | Set width
+height | 400 | Set height
+position | 1 | Start position
+interval | 5000 | Interval time between slides (in milliseconds)
+duration | 500 | Animation Speed (in milliseconds)
+animation | true | Enable/disable animation
+paginator |	true | Enable/disable paginator
+navigator |	true | Enable/disable "next"/"prev" navigation buttons
+progress |	true | Enable/disable progress bar
+loadImgSrc | 'images/load.gif' | Load image url
+skin | 'edslider' | Skin name
 
 #### Change Log
 version 1.1
@@ -58,3 +58,8 @@ version 1.2
 
 version 1.3
 * Fixed: issue preloading images
+
+version 1.4
+* Improved: responsive dimensions
+* Improved: preloading images
+* Improved: progress bar function
