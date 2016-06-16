@@ -8,11 +8,11 @@
 	position:relative;
 	padding:0;
 	margin:0;
-	overflow:hidden;
 }
 .edslider > ul{
 	background:#fff;
 	display:block;
+	overflow:hidden;
 }
 .edslider > ul li{
 	display:none;
@@ -31,58 +31,62 @@
 .edslider .current{
 	z-index:1 !important;
 }
-/*---navigator and paginator---*/
+/*---controls---*/
 .edslider .controls{
-	position:relative;
-	padding:10px 0;
-	overflow:hidden;
-	margin-top:5px;
+	top: 0;
+	height: 0;
+	position:absolute;
+	width: 100%;
 	z-index:2;
 }
 .edslider .controls .navigator{
+	background: rgba(0,0,0,.3);
 	background-image:url(../images/sprite-navigator.png);
 	cursor:pointer;
 	display:block;
-	float:left;
-	width:16px;
-	height:16px;
+	width:50px;
+	height:50px;
+	position: absolute;
+	overflow: hidden;
+	top: 225px;
+	transition: background .2s;
 }
 .edslider .controls .next{
 	background-position:0 0;
-}
-.edslider .controls .next:hover{
-	background-position:0 -16px;
+	right: 0;
 }
 .edslider .controls .prev{
-	background-position:0 -32px;
+	background-position:0 -50px;
+	left: 0;
 }
+.edslider .controls .next:hover,
 .edslider .controls .prev:hover{
-	background-position:0 -48px;
+	background-color: rgba(0,0,0,.6);
 }
 .edslider .controls .paginator{
-	float:right;
+	position: relative;
+	text-align: center;
+	top: 470px;
 }
 .edslider .controls .paginator li{
-	background:#666;
-	display:block;
-	float:left;
-	height:6px;
-	width:20px;
-	margin:0 0 0 5px;
+	background:rgba(0,0,0,.7);
+	border-radius: 8px;
+	box-sizing: border-box;
+	display:inline-block;
+	height:16px;
+	width:16px;
+	margin:0 3px;
 	cursor:pointer;
+	transition: background .2s;
 }
 .edslider .controls .paginator li.current,
-.edslider .controls .paginator li:hover{
-	background:#fff;
-}
-
-/*---progress---*/
+.edslider .controls .paginator li:hover,
 .edslider .progress{
-	position:absolute;
-	background:#fff;
-	opacity:.5;
+	background:rgba(255,255,255,.5);
+}
+.edslider .progress{
+	position: absolute;
+	top: 0;
 	height:3px;
-	top:501px;
-	left:0;
 	z-index:2;
 }

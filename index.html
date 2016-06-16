@@ -1,281 +1,148 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>jQuery edSlider</title>
-<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' type='text/css'>
-<link rel="stylesheet" href="css/edslider.css">
-<link rel="stylesheet" href="css/styles.css">
-<link rel="stylesheet" href="css/animate-custom.css">
-<!--<script src="http://code.jquery.com/jquery-latest.min.js"></script>-->
-<script src="js/jquery-1.9.1.min.js"></script>
-<script src="js/jquery.edslider.js"></script>
-<script>
-	$(document).ready(function(){
-		//Call plugin
-		$('.mySlideshow').edslider({
-			width : 900,
-			height: 500
+	<meta charset="UTF-8">
+	<meta name="description" content="jQuery edSlider plugin">
+	<meta name="keywords" content="HTML,CSS,JavaScript,jquery,plugin,slider">
+	<meta name="author" content="Eduardo Moreno">
+	<title>jQuery edSlider plugin</title>
+	<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' type='text/css'>
+	<link rel="stylesheet" href="css/edslider.css">
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/animate-custom.css">
+	<link rel="stylesheet" href="css/prism.css">
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="js/jquery.edslider.js"></script>
+	<script src="js/prism.js"></script>
+	<script>
+		$(document).ready(function(){
+			//Call plugin
+			$('.mySlideshow').edslider({
+				width : '100%',
+				height: 500
+			});
 		});
-
-		//Make zebra code
-		var span = $('.code').find('> span:odd'),
-			tr = $('table').find('tr:odd');
-
-		span.add(tr).css('background', '#111');
-
-		//set language. default: english (en)
-		$('.pt').hide();
-		$('.en').show();
-
-		$('.language')
-				.find('a')
-				.on('click', function(e){
-					e.preventDefault();
-
-					$(this)
-							.addClass('active')
-							.siblings()
-							.removeClass('active');
-
-					if($(this).attr('id') == "en"){
-						$('.pt').hide();
-						$('.en').show();
-					} else {
-						$('.pt').show();
-						$('.en').hide();
-					}
-
-				});
-	});
-</script>
+	</script>
 </head>
 
 <body>
 
 	<header>
-		<a class="btn download float-right en" href="jquery.edslider.zip">Download edSlider v1.3 (zip)</a>
-		<a class="btn download float-right pt" href="jquery.edslider.zip">Baixar edSlider v1.3 (zip)</a>
-		<h1>
-			<span>jQuery</span>
-			edSlider
-			<span>plugin</span>
-		</h1>
-		<div class="language float-left">
-			<a id="pt" href="">
-				<img src="images/pt.png" alt="Português"/>
-			</a>
-			<a id="en" class="active" href="">
-				<img src="images/en.png" alt="English"/>
-			</a>
-		</div>
+		<a class="btn download float-right" href="jquery.edslider.zip">Download edSlider v1.4 (zip)</a>
+		<img src="images/logo.png" alt="" class="logo">
 	</header>
 
-	<ul class="mySlideshow">
-		<li class="first">
-			<a href="http://www.harley-davidson.com" class="animated fadeInLeft">
-				<img src="images/hd-logo.png" width="330" height="255" alt="Harley-Davidson">
-			</a>
-			<div class="animated fadeInRight">It's time to ride!</div>
-		</li>
-		<li class="second">
-			<img class="animated fadeInUp" src="images/second-title.png" width="162" height="57" alt="FAT BOY">
-		</li>
-		<li class="third">
-			<img class="animated fadeInDown" src="images/third-title.png" width="179" height="57" alt="IRON 883">
-		</li>
-		<li class="fourth">
-			<img class="animated fadeInUp" src="images/fourth-title.png" width="281" height="57" alt="V-ROD MUSCLE">
-		</li>
-		<li class="fifth">
-			<img class="animated fadeInDown" src="images/fifth-title.png" width="366" height="57" alt="ROAD GLIDE CUSTOM">
-		</li>
-	</ul>
-
 	<div class="container">
-		<h2 class="en">How to use?</h2>
-		<h2 class="pt">Como usar?</h2>
 
-		<p class="en">1º - Call jQuery, edSlider plugin and edSlider css inside &lt;HEAD> tag</p>
-		<p class="pt">1º - Importe o jQuery, o plugin e o css dentro da tag &lt;HEAD></p>
+		<ul class="mySlideshow">
+			<li class="first">
+				<a href="http://www.harley-davidson.com" target="_blank" class="animated fadeInLeft">
+					<img src="images/hd-logo.png" width="330" height="255" alt="Harley-Davidson">
+				</a>
+				<div class="animated fadeInRight">It's time to ride!</div>
+			</li>
+			<li class="second">
+				<img src="images/second-title.png" class="animated fadeInRight">
+			</li>
+			<li class="third">
+				<img src="images/third-title.png" class="animated fadeInLeft">
+			</li>
+			<li class="fourth">
+				<img src="images/fourth-title.png" class="animated fadeInRight">
+			</li>
+			<li class="fifth">
+				<img src="images/fifth-title.png" class="animated fadeInLeft">
+			</li>
+		</ul>
+	
+		<h2>How to use?</h2>
 
-		<div class="code orange">
-			<span></span>
-			<span>&lt;link rel="<em>stylesheet</em>" href="<em>your-css-directory/edslider.css</em>"></span>
-			<span>&lt;script src="<em>http://code.jquery.com/jquery-latest.min.js</em>">&lt;/script></span>
-			<span>&lt;script src="<em>your-js-directory/edslider-1.2.js</em>">&lt;/script></span>
-			<span></span>
-		</div>
+		<p>1º - Call jQuery, edSlider plugin and edSlider</p>
 
-		<p class="en">2º - When document is ready, initialize the plugin (still in &lt;HEAD> tag)</p>
-		<p class="pt">2º - Ao carregar o documento, inicialize o plugin (ainda dentro da tag &lt;HEAD>)</p>
+		<pre data-src="how-to-use-01.html"><code class="language-markup"></code></pre>
 
-		<div class="code green">
-			<span></span>
-			<span>&lt;script></span>
-			<span>
-				<span>$(<em>document</em>).ready(function(){</span>
-			</span>
-			<span>
-				<span>
-					<span>$(<em>'.mySlideshow'</em>).edslider({</span>
-				</span>
-			</span>
-			<span>
-				<span>
-					<span>
-						<span>width:<em>'960'</em>,</span>
-					</span>
-				</span>
-			</span>
-			<span>
-				<span>
-					<span>
-						<span>height:<em>'400'</em></span>
-					</span>
-				</span>
-			</span>
-			<span>
-				<span>
-					<span>});</span>
-				</span>
-			</span>
-			<span>
-				<span>});</span>
-			</span>
-			<span>&lt;/script></span>
-			<span></span>
-		</div>
+		<p>2º - Init plugin</p>
 
-		<p class="en">3º - Inside &lt;BODY> tag, make the html structure like this:</p>
-		<p class="pt">3º - Dentro da tag &lt;BODY> monte a estrutura html assim:</p>
+		<pre data-src="how-to-use-02.html"><code class="language-markup"></code></pre>
 
-		<div class="code blue en">
-			<span></span>
-			<span>&lt;ul class="<em>mySlideshow</em>"></span>
-			<span>
-				<span>&lt;li><em>Yor stuff here!</em>&lt;/li></span>
-			</span>
-			<span>
-				<span>&lt;li><em>Yor stuff here!</em>&lt;/li></span>
-			</span>
-			<span>
-				<span>&lt;li><em>Yor stuff here!</em>&lt;/li></span>
-			</span>
-			<span>&lt;/ul></span>
-			<span></span>
-		</div>
+		<p>3º - Html structure</p>
 
-		<div class="code blue pt">
-			<span></span>
-			<span>&lt;ul class="<em>meuSlideshow</em>"></span>
-			<span>
-				<span>&lt;li><em>Suas coisas aqui!</em>&lt;/li></span>
-			</span>
-			<span>
-				<span>&lt;li><em>Suas coisas aqui!</em>&lt;/li></span>
-			</span>
-			<span>
-				<span>&lt;li><em>Suas coisas aqui!</em>&lt;/li></span>
-			</span>
-			<span>&lt;/ul></span>
-			<span></span>
-		</div>
+		<pre data-src="how-to-use-03.html"><code class="language-markup"></code></pre>
 
-		<h2 class="en">Options</h2>
-		<h2 class="pt">Opções</h2>
+		<h2>Options</h2>
 
-		<table class="code">
-			<thead class="en">
+		<table class="options">
+			<thead>
 				<tr>
 					<th>Option</th>
 					<th>Default Value</th>
 					<th>Description</th>
 				</tr>
 			</thead>
-			<thead class="pt">
-				<tr>
-					<th>Opção</th>
-					<th>Valor padrão</th>
-					<th>Descrição</th>
-				</tr>
-			</thead>
 			<tbody>
 				<tr>
 					<td>width</td>
 					<td>960</td>
-					<td class="en">Sets the width of the slider</td>
-					<td class="pt">Define uma largura fixa à janela</td>
+					<td>Set width</td>
 				</tr>
 				<tr>
 					<td>height</td>
 					<td>400</td>
-					<td class="en">Sets the height of the slider</td>
-					<td class="pt">Define uma altura fixa à janela</td>
+					<td>Set height</td>
 				</tr>
 				<tr>
 					<td>position</td>
 					<td>1</td>
-					<td class="en">Sets the start position. It must be between 1 and the &ltli> lenght.</td>
-					<td class="pt">Define a posição inicial. Deve estar entre 1 e número de tags &ltli>.</td>
+					<td>Start position</td>
 				</tr>
 				<tr>
 					<td>interval</td>
 					<td>5000</td>
-					<td class="en">Sets the time interval (in milliseconds) between slides.</td>
-					<td class="pt">Define o intervalo de tempo (em milisegundos) entre os slides.</td>
+					<td>Interval time between slides (in milliseconds)</td>
 				</tr>
 				<tr>
 					<td>duration</td>
 					<td>500</td>
-					<td class="en">Sets the speed (in milliseconds) of the animations.</td>
-					<td class="pt">Define a velocidade (em milisegundos) da animação.</td>
+					<td>Animation Speed (in milliseconds)</td>
 				</tr>
 				<tr>
 					<td>animation</td>
 					<td>true</td>
-					<td class="en">Enable/disable animation.</td>
-					<td class="pt">Hebilita/desabilita a animação.</td>
+					<td>Enable/disable animation</td>
 				</tr>
 				<tr>
 					<td>paginator</td>
 					<td>true</td>
-					<td class="en">Enable/disable the paginator (boolean value: true or false).</td>
-					<td class="pt">Hebilita/desabilita a paginação (valor booleano: true ou false).</td>
+					<td>Enable/disable paginator</td>
 				</tr>
 				<tr>
 					<td>navigator</td>
 					<td>true</td>
-					<td class="en">Enable/disable the "next" and "prev" navigation buttons (boolean value: true or false).</td>
-					<td class="pt">Hebilita/desabilita a navegação para avançar ou voltar (valor booleano: true ou false).</td>
+					<td>Enable/disable "next"/"prev" navigation buttons</td>
 				</tr>
 				<tr>
 					<td>progress</td>
 					<td>true</td>
-					<td class="en">Enable/disable the interval progress bar (boolean value: true or false).</td>
-					<td class="pt">Hebilita/desabilita a barra de progresso do intervalo (valor booleano: true ou false).</td>
+					<td>Enable/disable interval progress bar</td>
 				</tr>
 				<tr>
 					<td>loadImgSrc</td>
 					<td>'images/load.gif'</td>
-					<td class="en">Sets the path of the loading image.</td>
-					<td class="pt">Define o caminho da imagem de carregamento.</td>
+					<td>Load image url</td>
 				</tr>
 				<tr>
 					<td>skin</td>
 					<td>'edslider'</td>
-					<td class="en">Sets the name of the skin. Use the edslider.css file to create your own skin.</td>
-					<td class="pt">Define o nome do skin. Utilize o arquivo edslider.css como base para criar o seu próprio skin</td>
+					<td>Skin name</td>
 				</tr>
 			</tbody>
 		</table>
 
 		<hr/>
 
-		<h2 class="en">Change log</h2>
-		<h2 class="pt">Log das mudanças</h2>
+		<h2>Change log</h2>
 
-		<div class="en">
+		<div>
 			<strong>version 1.1</strong>
 			<ul>
 				<li>Fixed: issue with navigation (next and prev)</li>
@@ -294,75 +161,32 @@
 			<ul>
 				<li>Fixed: issue preloading images</li>
 			</ul>
-		</div>
 
-		<div class="pt">
-			<strong>versão 1.1</strong>
+			<strong>version 1.4</strong>
 			<ul>
-				<li>Corrigido: problema com a navegação (avançar e voltar)</li>
-				<li>Corrigido: problema ao definir uma cor de fundo no arquivo css</li>
-				<li>Melhorado: agora o intervalo é relativo à barra de progresso</li>
-			</ul>
-
-			<strong>versão 1.2</strong>
-			<ul>
-				<li>Novo: adicionada opção para habilidar/desabilitar a animação</li>
-				<li>Novo: adicionada opção para definir o caminho da imagem de carregamento</li>
-				<li>Melhorado: validação de erros</li>
-			</ul>
-
-			<strong>versão 1.3</strong>
-			<ul>
-				<li>Corrigido: problema no carregamento das imagens</li>
+				<li>Improved: responsive dimensions</li>
+				<li>Improved: preloading images</li>
+				<li>Improved: progress bar function</li>
 			</ul>
 		</div>
 
-		<a class="btn download en" href="jquery.edslider.zip">Download edSlider v1.3 (zip)</a>
-		<a class="btn download pt" href="jquery.edslider.zip">Baixar edSlider v1.3 (zip)</a>
+
+		<a class="btn download en" href="jquery.edslider.zip">Download edSlider v1.4 (zip)</a>
 
 		<hr/>
 
-		<h2 class="en">Author</h2>
-		<h2 class="pt">Autor</h2>
+		<h2>Author</h2>
 
 		<div>
-			<p>Eduardo Moreno</p>
+			<p><b>Eduardo Moreno</b><br>Front-end developer and Webdesiger director</p>
+			<p><a href="http://edumoreno.com.br" class="link">http://edumoreno.com.br</a></p>
 			<p><img src="images/icon-facebook.png" alt="Facebook" class="icon"/> <a href="https://www.facebook.com/eduardomoreno81" class="link" target="_blank">facebook.com/eduardomoreno81</a></p>
 			<p><img src="images/icon-linkedin.png" alt="Linkedin" class="icon"/> <a href="http://lnkd.in/59e_uq" class="link" target="_blank">lnkd.in/59e_uq</a></p>
 		</div>
 
 		<hr/>
 
-		<h2 class="en">Why?</h2>
-		<h2 class="pt">Por que?</h2>
-
-		<div class="en">
-			<p>
-				Well, maybe you are asking yourself "another slider plugin?". LOL, that's right. Maybe we can modify that
-				saying that says "before to die, a man must write a book, marry, get kids AND make another slider plugin!".
-			</p>
-			<p>
-				Well it looks like funny but the reason why I've wrote this "another" plugin is just because i wanted.
-				Someday I was doing nothing and I have decide to do it. The good news? It works fine and you can use it in
-				your project as you wish. Just plsease, leave the code original. Thanks for believe in my job!
-			</p>
-		</div>
-
-		<div class="pt">
-			<p>
-				Talvez você esteja se perguntando - "outro plugin de slider?". Rsrs, tem razão. Talvez possamos mudar
-				aquele ditado que diz - "um homem antes de morrer deve escrever um livro, casar-se, ter filhos e escrever
-				um outro plugin de slider!".
-			</p>
-			<p>
-				Bem, parece engraçado mas a razão pela qual eu decidi escrever um "outro" plugin de slider é só porque
-				eu quis. Certo dia eu estava sem fazer nada e resolvi desenvolver. A boa notícia? O plugin funciona muito
-				bem e você pode usá-lo no seu projeto do jeito que desejar. Só peço que por favor mantenha o código original
-				e obrigado por acreditar no meu trabalho.
-			</p>
-		</div>
-
-		<hr/>
+		<p style="text-align: center;">Copyright © 2016 - Eduardo Moreno</p>
 
 	</div>
 

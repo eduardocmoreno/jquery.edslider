@@ -1,5 +1,5 @@
 /*
- * jQuery edSlider plugin v.1.3
+ * jQuery edSlider plugin v.1.4
  * @author Eduardo Moreno
  * Code under MIT License
  */
@@ -24,11 +24,12 @@
 
 		var options = $.extend({}, defaults, settings);
 
-		return this.each(function(){
+		this.each(function(){
 
 			//Building (wrapping, validating, setting up)
 			var slider = $(this),
-				sliderLi = slider.find('li');
+				sliderLi = slider.find('li'),
+				sliderBgImg = sliderLi.css('background-image');
 
 			sliderLi.length == 0 && console.error('error: empty slider!');
 
@@ -36,7 +37,12 @@
 				wrapper = slider
 					.wrap('<div class="' + options.skin + '"/>')
 					.parent()
-					.css('width', options.width),
+					.css({
+						'width'              : options.width,
+						'background-image'   : 'url("' + options.loadImgSrc + '")',
+						'background-repeat'  : 'no-repeat',
+						'background-position': 'center'
+					}),
 				startPosition = options.position;
 
 			if(options.position == 0 || options.position > sliderLi.length){
@@ -73,7 +79,8 @@
 				if(options.paginator){
 					paginator = controls
 						.prepend('<ul class="paginator"/>')
-						.find('.paginator');
+						.find('.paginator')
+						.hide();
 
 					sliderLi.each(function(){
 						paginator.append('<li>&nbsp;</li>');
@@ -98,6 +105,7 @@
 					controls
 						.append('<div class="navigator prev"/><div class="navigator next"/>')
 						.find('.navigator')
+						.hide()
 						.on('click', function(){
 							var btn = $(this);
 							btn.hasClass('next') && interact && next();
@@ -112,36 +120,32 @@
 
 			!options.progress && progress.height(0);
 
-			progressWidth = slider.width();
-
 			//Functions (init, play, next, prev, pause, resume)
 			var timeLeft = options.interval, current, index, paused;
 
-			function init(){
+			function init(){				
+				progressResize();
 				sliderLi.length > 1 ? play() : sliderLi.fadeIn(options.duration);
 			}
 
 			function play(){
 				progressReset();
 				interact = false;
-				current = sliderLi.filter('.current');
-				if(options.animation){
-					current
-						.siblings()
-						.fadeOut(options.duration)
-						.end()
-						.fadeIn(options.duration, function(){
-							interval();
-						});
-				} else {
-					current
-						.siblings()
-						.hide()
-						.end()
-						.show();
-					interval();
-				}
+				current = sliderLi
+					.filter('.current')
+					.siblings()
+					.fadeOut(options.animation && options.duration || 0)
+					.end()
+					.fadeIn(options.animation && options.duration || 0, function(){
+						interval();
+					});
+
+				$('.navigator')
+					.add('.paginator')
+					.fadeIn(options.animation && options.duration || 0);
+
 				index = sliderLi.index(current) + 1;
+				
 				if(options.paginator){
 					paginatorLi
 						.removeClass('current')
@@ -202,17 +206,17 @@
 			}
 
 			function progressReset(){
-				if(options.animation){
-					progress
-						.stop()
-						.fadeOut(options.duration, function(){
-							progress.width(0);
-						});
-				} else {
-					progress.width(0);
-				}
+				progress.stop().width(0);				
 				progressElapsed = 0;
 				timeLeft = options.interval;
+			}
+
+			function progressResize(){
+				$(window)
+					.resize(function(){
+						progressWidth = slider.width();
+						pause(); interval();
+					}).resize();
 			}
 
 			function hoverControl(){
@@ -225,17 +229,26 @@
 				}
 			}
 
-			//Preloading and init
-			var preloadedImgs = 0,
-				totalImgs = sliderImg.length;
+			//Preloading images and init
+			var totalImgsUrl = [],
+				preloadedImgs = 0;
+			
+			sliderLi.each(function(){
+				sliderBgImg = $(this).css('background-image').replace(/.*\s?url\([\'\"]?/, '').replace(/[\'\"]?\).*/, '');
+				sliderBgImg != 'none' && totalImgsUrl.push(sliderBgImg);
+			});
+			
+			sliderImg.each(function(){
+				totalImgsUrl.push(this.src);
+			});
 
-			if(totalImgs > 0){
-				sliderImg.each(function(){
+			if(totalImgsUrl){
+				$.each(totalImgsUrl, function(value){
 					$('<img/>')
 						.hide()
-						.attr('src', this.src + '?random=' + new Date().getTime())
+						.attr('src', totalImgsUrl[value])
 						.on('load', function(){
-							if(++preloadedImgs == totalImgs){
+							if(++preloadedImgs == totalImgsUrl.length){
 								slider.css('background-image', 'none');
 								init();
 							} else {
